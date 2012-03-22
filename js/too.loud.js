@@ -15,11 +15,9 @@ $(document).ready(function() {
 function contentSwiped(dir) {
 	if ( dir.right ) {
 		clickedButton();
-		$.ui.toggleNavMenu(false);
 	}
 	if ( dir.left ) {
 		clickedClear();
-		$.ui.toggleNavMenu(true);
 	}
 	swiped = true;
 }
@@ -48,7 +46,7 @@ function clickedButton() {
 		objText.css("font-size", (parseInt(objText.css("font-size"), 10) - 1) + "px");
 	} while ((id$("objText").offsetHeight > gWH));
 
-
+	$.ui.toggleNavMenu(false);
 	//console.log(id$("objText").offsetHeight + " " + id$("objText").offsetWidth + " " + parseInt(objText.css("font-size"), 10) + " " + gWH);
 }
 
@@ -65,6 +63,7 @@ function clickedTools() {
 function clickedClear() {
 	id$("textInput").value = "";
 	id$("textInput").focus();
+	$.ui.toggleNavMenu(true);
 }
 
 function id$(i) {
