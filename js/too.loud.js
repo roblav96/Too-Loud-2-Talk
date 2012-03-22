@@ -64,6 +64,7 @@ function clickedTools() {
 
 function clickedClear() {
 	id$("textInput").value = "";
+	id$("textInput").focus();
 }
 
 function id$(i) {
