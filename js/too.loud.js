@@ -1,7 +1,37 @@
-var gWOrientation, gWH, gWW;
+var gWOrientation, gWH, gWW, swiped;
 $(document).ready(function() {
 	onWindowResize();
+	swiped = false;
+
+	$("#content").swipeListener({
+		vthreshold: 30,
+		hthreshold: 50,
+		callBack: function (dir) {
+			contentSwiped(dir);
+		}
+	});
 });
+
+function contentSwiped(dir) {
+	if ( dir.right ) {
+		clickedButton();
+		$.ui.toggleNavMenu(false);
+	}
+	if ( dir.left ) {
+		clickedClear();
+		$.ui.toggleNavMenu(true);
+	}
+	swiped = true;
+}
+
+function clickedContent() {
+	if (!swiped) {
+		$.ui.toggleNavMenu();
+		swiped = false;
+	}
+	onWindowResize();
+	swiped = false;
+}
 
 function clickedButton() {
 	var objText = $("#objText");
@@ -18,6 +48,7 @@ function clickedButton() {
 		objText.css("font-size", (parseInt(objText.css("font-size"), 10) - 1) + "px");
 	} while ((id$("objText").offsetHeight > gWH));
 
+
 	//console.log(id$("objText").offsetHeight + " " + id$("objText").offsetWidth + " " + parseInt(objText.css("font-size"), 10) + " " + gWH);
 }
 
@@ -29,6 +60,10 @@ function clickedTools() {
 		cancelCallback: function() {},
 		cancelOnly: true
 	});
+}
+
+function clickedClear() {
+	id$("textInput").value = "";
 }
 
 function id$(i) {
@@ -43,9 +78,9 @@ function onWindowResize() {
 	} else {
 		gWOrientation = "portrait";
 	}
-	var newWidth = id$("navbar").offsetWidth - id$("textSubmit").offsetWidth - id$("textTools").offsetWidth - 50;
-	console.log(id$("textSubmit").offsetWidth + " " + id$("textTools").offsetWidth + " " + id$("navbar").offsetWidth);
-	$("#textInput").css("width", newWidth + "px");
+
+/*	var newWidth = id$("navbar").offsetWidth - id$("textSubmit").offsetWidth - id$("textTools").offsetWidth - 50;
+	$("#textInput").css("width", newWidth + "px");*/
 }
 
 window.onresize = function() {
