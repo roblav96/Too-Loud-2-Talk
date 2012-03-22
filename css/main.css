@@ -5,6 +5,28 @@
 }
 
 #objText {
+	word-wrap: normal;
 	font: bold 18px/normal Helvetica, Arial, sans-serif;
+}
+
+#textSubmit {
+	font-size: 250%;
+	margin-right: 5px;
+	height: 85%;
+	font-family: IcoMoon;
+	float: right;
+}
+
+#textInput {
+	font-size: 150%;
+	height: 85%;
+	width: 50%;
+}
+
+#textTools {
+	font-size: 250%;
+	height: 85%;
+	font-family: IcoMoon;
+	float: left;
 }
 

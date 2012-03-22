@@ -13,36 +13,35 @@
 	<link rel="stylesheet"  type="text/css" href="jqmobi/css/jq.ui.frosty.css" title="frosty" />
 
 	<link rel="stylesheet" href="css/main.css" type="text/css" />
+
+	<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
 </head>
 <body>
 	<div id="jQUi">
 		<div id="content" onclick="$.ui.toggleNavMenu()">
-			<span id="objText" >-INSTRUCTIONS-<br>Type the text you'd like to be displayed!<br>Tap the screen to toggle the text input.</span>
+			<span id="objText">--- INSTRUCTIONS ---<br>Type the text you'd like to be displayed!<br>Tap the screen to toggle the bottom bar.</span>
 		</div>
 		<div id="navbar">
+			<input type="button" id="textTools" class="button" value="M" onclick="clickedTools()">
 			<input type="text" id="textInput" class="jq-ui-forms" onkeydown="if (event.keyCode == 13) document.getElementById('textSubmit').click()">
-			<input type="button" id="textSubmit" class="button" value="Submit" onclick="clickedButton()">
+			<input type="button" id="textSubmit" class="button" value="A" onclick="clickedButton()">
 		</div>
 	</div>
 </body>
 
 	<script src="jqmobi/js/jq.mobi.min.js"></script>
 	<script src="jqmobi/js/jq.ui.min.js"></script>
-	<script src="jqmobi/js/jq.css3animate.js"></script>
-	<script src="jqmobi/js/jq.fx.js"></script>
-	<script src="js/jquery-1.7.1.min.js"></script>
 
 	<!-- include touch.js on desktop browsers only -->
 	<script>
-		var $$ = jQuery.noConflict();
-		 $.ui.autoLaunch = false;
-		if (!((window.DocumentTouch && document instanceof DocumentTouch) || 'ontouchstart' in window)) {
-			var script = document.createElement("script");
-			script.src = "jqmobi/js/touch.js";
-			var tag = $("head").append(script);
-			$.os.android = true; //let's make it run like an android device
-			$.os.desktop = true;
-		}
+	$.ui.autoLaunch = false;
+	if (!((window.DocumentTouch && document instanceof DocumentTouch) || 'ontouchstart' in window)) {
+		var script = document.createElement("script");
+		script.src = "jqmobi/js/touch.js";
+		var tag = $("head").append(script);
+		$.os.android = true; //let's make it run like an android device
+		$.os.desktop = true;
+	}
 	</script>
 
 	<script src="js/too.loud.js"></script>

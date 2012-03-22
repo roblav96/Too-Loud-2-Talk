@@ -17,7 +17,6 @@
 
 	<icon src="icon.png" gap:role="default" />
 
-	<preference name="orientation" value="portrait" />
 	<preference name="fullscreen" value="true" />
 	<preference name="permissions" value="none" />
 
